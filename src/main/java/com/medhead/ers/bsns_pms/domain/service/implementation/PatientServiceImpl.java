@@ -1,5 +1,8 @@
 package com.medhead.ers.bsns_pms.domain.service.implementation;
 
+import com.medhead.ers.bsns_pms.application.messaging.exception.MessagePublicationFailException;
+import com.medhead.ers.bsns_pms.application.messaging.message.factory.MessageFactory;
+import com.medhead.ers.bsns_pms.application.messaging.service.definition.MessagePublisher;
 import com.medhead.ers.bsns_pms.data.repository.PatientRepository;
 import com.medhead.ers.bsns_pms.domain.entity.Patient;
 import com.medhead.ers.bsns_pms.domain.exception.PatientNotFoundException;
@@ -14,9 +17,19 @@ import java.util.UUID;
 public class PatientServiceImpl implements PatientService {
     @Autowired
     PatientRepository patientRepository;
+
+    @Autowired
+    MessagePublisher messagePublisher;
+
     @Override
     public Patient savePatient(Patient patient) {
-        return patientRepository.save(patient);
+        Patient patientCreated = patientRepository.save(patient);
+        try {
+            messagePublisher.publish(MessageFactory.createPatientCreatedMessage(patientCreated));
+            return patientCreated;
+        }
+        // Pour le POC, aucune gestion d'erreur sur la publication de message ne sera implémentée.
+        catch (MessagePublicationFailException e){return patientCreated;}
     }
 
     @Override
