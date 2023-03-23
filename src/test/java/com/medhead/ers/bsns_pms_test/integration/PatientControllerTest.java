@@ -1,6 +1,7 @@
-package com.medhead.ers.bsns_pms.integration;
+package com.medhead.ers.bsns_pms_test.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.medhead.ers.bsns_pms.BsnsPmsApplication;
 import com.medhead.ers.bsns_pms.data.repository.PatientRepository;
 import com.medhead.ers.bsns_pms.domain.entity.Patient;
 import com.medhead.ers.bsns_pms.domain.valueObject.Gender;
@@ -21,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@SpringBootTest
+@SpringBootTest(classes = BsnsPmsApplication.class)
 @AutoConfigureMockMvc
 @DirtiesContext
 class PatientControllerTest {
