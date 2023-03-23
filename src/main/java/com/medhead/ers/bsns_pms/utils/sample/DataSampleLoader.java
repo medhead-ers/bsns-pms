@@ -1,4 +1,4 @@
-package com.medhead.ers.bsns_pms.data.sample;
+package com.medhead.ers.bsns_pms.utils.sample;
 
 import com.medhead.ers.bsns_pms.data.repository.PatientRepository;
 import com.medhead.ers.bsns_pms.domain.entity.Patient;
