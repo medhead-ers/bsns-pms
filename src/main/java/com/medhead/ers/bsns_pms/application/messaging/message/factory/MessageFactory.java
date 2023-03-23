@@ -1,6 +1,11 @@
 package com.medhead.ers.bsns_pms.application.messaging.message.factory;
 
 
-public abstract interface MessageFactory {
+import com.medhead.ers.bsns_pms.application.messaging.message.PatientCreatedMessage;
+import com.medhead.ers.bsns_pms.domain.entity.Patient;
 
+public interface MessageFactory {
+    static PatientCreatedMessage createPatientCreatedMessage(Patient patient){
+        return new PatientCreatedMessage(patient);
+    }
 }
