@@ -1,4 +1,4 @@
-package com.medhead.ers.bsns_pms;
+package com.medhead.ers.bsns_pms_test;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.GenericContainer;

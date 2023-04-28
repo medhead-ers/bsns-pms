@@ -11,13 +11,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   # App runner
-  bsns_pms:
+  bsns-pms:
     build: ./
     labels:
-      - "traefik.http.routers.bsns_pms.rule=Host(`medhead.localhost`) && PathPrefix(`/pms`)"
-      - "traefik.http.routers.bsns_pms.middlewares=pms-stripprefix"
+      - "traefik.http.routers.bsns-pms.rule=Host(`medhead.localhost`) && PathPrefix(`/pms`)"
+      - "traefik.http.routers.bsns-pms.middlewares=pms-stripprefix"
       - "traefik.http.middlewares.pms-stripprefix.stripprefix.prefixes=/pms"
-      - "traefik.http.services.bsns_pms.loadbalancer.server.port=8080"
+      - "traefik.http.services.bsns-pms.loadbalancer.server.port=8080"
 
   # Redis dependency
   redis:
