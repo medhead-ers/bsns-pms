@@ -5,6 +5,7 @@ import com.medhead.ers.bsns_pms.BsnsPmsApplication;
 import com.medhead.ers.bsns_pms.data.repository.PatientRepository;
 import com.medhead.ers.bsns_pms.domain.entity.Patient;
 import com.medhead.ers.bsns_pms.domain.valueObject.Gender;
+import com.medhead.ers.bsns_pms_test.TestWithRedis;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BsnsPmsApplication.class)
 @AutoConfigureMockMvc
 @DirtiesContext
-class PatientControllerTest {
+class PatientControllerTest extends TestWithRedis {
     @Autowired
     private MockMvc mockMvc;
     @Autowired

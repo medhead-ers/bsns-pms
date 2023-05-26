@@ -3,10 +3,13 @@
 <br>
 <br>
 <h1>BSNS PMS - Patient Management Service</h1>
-</div>
+
 
 <br>
 <br>
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=medhead-ers_bsns-pms&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=medhead-ers_bsns-pms)
+</div>
 
 Ce dépot contient le micro-service business de gestion des patients utilisé dans le cadre du POC MedHead ERS.  
 
