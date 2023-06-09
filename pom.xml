@@ -12,7 +12,7 @@
 	<!-- PROPERTIES  -->
 	<properties>
 		<!--À configurer pour chaque micro-services -->
-		<service.version>1.0.0</service.version>
+		<service.version>1.0.1</service.version>
 		<service.artifactid>bsns_pms</service.artifactid>
 		<service.github.package.url>https://maven.pkg.github.com/medhead-ers/bsns-pms</service.github.package.url>
 
@@ -121,6 +121,12 @@
 						<configuration>
 							<excludes>
 								<exclude>com/medhead/ers/*/*Application.class</exclude>
+								<!-- Exclude messaging when not used in app to avoid wrong metrics -->
+								<exclude>com/medhead/ers/*/application/messaging/exception/MessagePublicationFailException.*</exclude>
+								<exclude>com/medhead/ers/*/application/messaging/exception/CannotProcessJobException.*</exclude>
+								<exclude>com/medhead/ers/*/application/advice/MessagePublicationFailAdvice.*</exclude>
+								<exclude>com/medhead/ers/*/application/messaging/redis/config/MessageListener.*</exclude>
+								<exclude>com/medhead/ers/*/application/messaging/service/implementation/JobMapperImpl.*</exclude>
 							</excludes>
 						</configuration>
 						<executions>
